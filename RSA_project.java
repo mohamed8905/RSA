@@ -24,14 +24,14 @@ public class RSA_project {
         }
         int d = find_d(m,e);
 
-        System.out.print("which operation to perform:\t");
-        System.out.print("1->(Encryption)||2->(Decryption):");
+        System.out.print("which operation to perform:\t\t");
+        System.out.print("1->(Encryption) || 2->(Decryption):");
         int op = input.nextInt();
 
         String cipher;
         switch (op){
             case 1:
-                System.out.print("Enter Original Message:");
+                System.out.print("Enter Original Message: ");
                 input.nextLine();
                 String message = input.nextLine();
 
