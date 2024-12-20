@@ -1,13 +1,13 @@
 import java.util.Scanner;
 public class RSA_project {
     public static void main(String[] args) {
-        Scanner sc = new Scanner(System.in);
+        Scanner input = new Scanner(System.in);
 
         System.out.println("Enter Two distinct upper limits for p , q:");
         System.out.print("Upper limit for p:");
-        int p = sc.nextInt();
+        int p = input.nextInt();
         System.out.print("Upper limit for q:");
-        int q = sc.nextInt();
+        int q = input.nextInt();
 
         while (!IsPrime(p)) {
             p--;
@@ -24,17 +24,31 @@ public class RSA_project {
         }
         int d = find_d(m,e);
 
-        System.out.print("Enter Original Message:");
-        sc.nextLine();
-        String message = sc.nextLine();
+        System.out.print("which operation to perform:\t");
+        System.out.print("1->(Encryption)||2->(Decryption):");
+        int op = input.nextInt();
 
-        String cipher = Encryption(message, e, n);
-        System.out.println("Cipher Code: " + cipher);
+        String cipher;
+        switch (op){
+            case 1:
+                System.out.print("Enter Original Message:");
+                input.nextLine();
+                String message = input.nextLine();
 
-        String decryptedMessage = Decryption(cipher, d, n);
-        System.out.println("Decrypted Message: " + decryptedMessage);
+                cipher = Encryption(message, e, n);
+                System.out.println("Cipher Code: " + cipher);
+                break;
+            case 2:
+                System.out.print("Enter Cipher Code: ");
+                input.nextLine();
+                cipher = input.nextLine();
 
-        sc.close();
+                String decryptedMessage = Decryption(cipher, d, n);
+                System.out.println("Decrypted Message: " + decryptedMessage);
+                break;
+        }
+
+        input.close();
     }
     static boolean IsPrime(int prime) {
         if (prime < 2) {
