@@ -22,7 +22,7 @@ public class RSA_project {
         while (Gcd(m, e)!=1) {
             e++;
         }
-        int d = find_d(m,e);
+        int d = find_d(m, e);
 
         System.out.print("which operation to perform:\t\t");
         System.out.print("1->(Encryption) || 2->(Decryption):");
